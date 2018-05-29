@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Empleados{% endblock title %}
+
+{% block extra-css %}{% endblock extra-css %}
+
+{% block content %}
+<<<<<<< HEAD
+    <div class="header">
+        <section class="hero is-info">
+            <div class="hero-body">
+            <div class="container">
+                  <h1 class="title">
+                    <a class="button is-link is-info" href="adms.html">
+                    <a href="{% url 'index' %}" class="button is-gray">
+                       <span class="icon is-small">
+                          <i class="fas fa-arrow-left"></i>
+                       </span>
+                    </a>
+                    Lista de empleados
+                  </h1>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="section has-text-centered">
+                
+        <input class="input"type="text-centered" placeholder="Clave del Empleado" style=" width: 50%; margin-left: -5px;">
+        <button class="button is-link">Buscar</button>
+        <a class="button is-info" href="{% url 'empleados:create' %}">Agregar</a>
+
+    <table class="table is-hoverable">
+=======
+	<h1 class="title">Lista de empleados</h1>
+    <a href="{% url 'index' %}" class="button is-gray">Volver a Inicio</a>
+    <a href="{% url 'empleados:create' %}" class="button is-primary">Registrar nuevo empleado</a>
+    <br><br>
+
+    <table class="table">
+>>>>>>> karina
+        <thead>
+            <tr>
+                <th># Empleado</th>
+                <th>Puesto</th>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Calle</th>
+                <th>Colonia</th>
+                <th>Delegación</th>
+                <th>Municipio</th>
+                <th>Código Postal</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empleado in empleado_list %}
+                <tr>
+                    <td><a href="{% url 'empleados:detail' empleado.pk %}">{{ empleado.pk }}</a></td>
+                    <td>{{ empleado.puesto }}</td>
+                    <td>{{ empleado.nombre }}</td>
+                    <td>{{ empleado.apellido_paterno }}</td>
+                    <td>{{ empleado.apellido_materno }}</td>
+                    <td>{{ empleado.calle }}</td>
+                    <td>{{ empleado.colonia }}</td>
+                    <td>{{ empleado.delegacion }}</td>
+                    <td>{{ empleado.municipio }}</td>
+                    <td>{{ empleado.codigo_postal }}</td>
+                    <td>
+<<<<<<< HEAD
+                        <a href="{% url 'empleados:detail' empleado.pk %}" class="button is-info is-outlined" title="Ver detalle">
+                            {# <span>Editar</span> #}
+                            <span class="icon is-small">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </a>
+                        <a href="{% url 'empleados:update' empleado.pk %}" class="button is-success is-outlined" title="Editar">
+                            {# <span>Editar</span> #}
+                            <span class="icon is-small">
+                                <i class="fas fa-pencil-alt"></i>
+                            </span>
+                        </a>
+                        <a href="{% url 'empleados:delete' empleado.pk %}" class="button is-danger is-outlined" title="Eliminar">
+                            {# <span>Eliminar</span> #}
+                            <span class="icon is-small">
+                                <i class="fas fa-trash"></i>
+                            </span>
+                        </a>
+=======
+                        <a href="{% url 'empleados:update' empleado.pk %}">Editar</a>
+                        <a href="{% url 'empleados:delete' empleado.pk %}">Eliminar</a>
+>>>>>>> karina
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No hay empleados.</td>
+                </tr>
+            {% endfor %}
+<<<<<<< HEAD
+        </tbody>    
+    </table>
+    </section>
+=======
+        </tbody>
+    </table>
+>>>>>>> karina
+{% endblock content %}
+
+{% block extra-js %}{% endblock extra-js %}
