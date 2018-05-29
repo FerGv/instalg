@@ -5,7 +5,6 @@
 {% block extra-css %}{% endblock extra-css %}
 
 {% block content %}
-<<<<<<< HEAD
     <div class="header">
         <section class="hero is-info">
             <div class="hero-body">
@@ -30,14 +29,6 @@
         <a class="button is-info" href="{% url 'empleados:create' %}">Agregar</a>
 
     <table class="table is-hoverable">
-=======
-	<h1 class="title">Lista de empleados</h1>
-    <a href="{% url 'index' %}" class="button is-gray">Volver a Inicio</a>
-    <a href="{% url 'empleados:create' %}" class="button is-primary">Registrar nuevo empleado</a>
-    <br><br>
-
-    <table class="table">
->>>>>>> karina
         <thead>
             <tr>
                 <th># Empleado</th>
@@ -56,7 +47,7 @@
         <tbody>
             {% for empleado in empleado_list %}
                 <tr>
-                    <td><a href="{% url 'empleados:detail' empleado.pk %}">{{ empleado.pk }}</a></td>
+                    <td><a href="{% url 'empleados:detail' empleado.pk %}">{{ empleado.numero }}</a></td>
                     <td>{{ empleado.puesto }}</td>
                     <td>{{ empleado.nombre }}</td>
                     <td>{{ empleado.apellido_paterno }}</td>
@@ -67,7 +58,6 @@
                     <td>{{ empleado.municipio }}</td>
                     <td>{{ empleado.codigo_postal }}</td>
                     <td>
-<<<<<<< HEAD
                         <a href="{% url 'empleados:detail' empleado.pk %}" class="button is-info is-outlined" title="Ver detalle">
                             {# <span>Editar</span> #}
                             <span class="icon is-small">
@@ -86,10 +76,6 @@
                                 <i class="fas fa-trash"></i>
                             </span>
                         </a>
-=======
-                        <a href="{% url 'empleados:update' empleado.pk %}">Editar</a>
-                        <a href="{% url 'empleados:delete' empleado.pk %}">Eliminar</a>
->>>>>>> karina
                     </td>
                 </tr>
             {% empty %}
@@ -97,14 +83,9 @@
                     <td colspan="4">No hay empleados.</td>
                 </tr>
             {% endfor %}
-<<<<<<< HEAD
         </tbody>    
     </table>
     </section>
-=======
-        </tbody>
-    </table>
->>>>>>> karina
 {% endblock content %}
 
 {% block extra-js %}{% endblock extra-js %}

@@ -35,7 +35,7 @@
                 <th># Piso</th>
                 <th>Fecha</th>
                 <th>Hora</th>
-                <th>Usuario de departamento</th>
+                <th>Cliente</th>
                 <th>Calle</th>
                 <th>Colonia</th>
                 <th>Código Postal</th>
@@ -45,11 +45,11 @@
         <tbody>
             {% for instalacion in instalacion_list %}
                 <tr>
-                    <td><a href="{% url 'instalaciones:detail' instalacion.pk %}">{{ instalacion.pk }}</a></td>
+                    <td><a href="{% url 'instalaciones:detail' instalacion.pk %}">{{ instalacion.numero }}</a></td>
                     <td>{{ instalacion.numero_piso }}</td>
                     <td>{{ instalacion.fecha }}</td>
                     <td>{{ instalacion.hora }}</td>
-                    <td>{{ instalacion.usuario_departamento }}</td>
+                    <td>{{ instalacion.cliente }}</td>
                     <td>{{ instalacion.calle }}</td>
                     <td>{{ instalacion.colonia }}</td>
                     <td>{{ instalacion.codigo_postal }}</td>

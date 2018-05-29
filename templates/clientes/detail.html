@@ -7,14 +7,14 @@
 {% block content %}
     <h1 class="title">Detalle</h1>
 
-    <p><b>RFC:</b> {{ usuario_departamento.pk }}</p>
-    <p><b>Nombre:</b> {{ usuario_departamento.nombre }}</p>
-    <p><b>Apellido Paterno:</b> {{ usuario_departamento.apellido_paterno }}</p>
-    <p><b>Apellido Materno:</b> {{ usuario_departamento.apellido_materno }}</p>
+    <p><b>RFC:</b> {{ cliente.rfc }}</p>
+    <p><b>Nombre:</b> {{ cliente.nombre }}</p>
+    <p><b>Apellido Paterno:</b> {{ cliente.apellido_paterno }}</p>
+    <p><b>Apellido Materno:</b> {{ cliente.apellido_materno }}</p>
 
-    <a href="{% url 'usuarios_departamentos:list' %}">Volver</a>
-    <a href="{% url 'usuarios_departamentos:delete' usuario_departamento.pk %}">Eliminar</a>
-    <a href="{% url 'usuarios_departamentos:update' usuario_departamento.pk %}">Editar</a>
+    <a href="{% url 'clientes:list' %}">Volver</a>
+    <a href="{% url 'clientes:delete' cliente.pk %}">Eliminar</a>
+    <a href="{% url 'clientes:update' cliente.pk %}">Editar</a>
 {% endblock content %}
 
 {% block extra-js %}{% endblock extra-js %}

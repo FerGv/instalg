@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class PedidosConfig(AppConfig):
-    name = 'pedidos'
+class PedidoConfig(AppConfig):
+    name = 'pedido'
