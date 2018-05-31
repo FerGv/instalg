@@ -32,30 +32,36 @@
             </section>
 
             <section class="section has-text-centered">
-                <a href="{% url 'logout' %}" class="button is-danger">x Cerrar sesión</a><br><br>
+                <a class="button is-danger is-inverted" href="{% url 'logout' %}" style=" margin-left: 550px; border-radius: 50px ; box-shadow: 0px 0px 40px red, 0px 0px 100px #ECF0F1;">
+				   <span class="icon">
+				      <i class="fas fa-power-off"></i>
+				   </span>
+				  <span>Cerrar sesión</span>
+			    </a>
+                <br><br>
                 {% if request.user|has_role:'admin_sistema,ing_civil' %}
-                    <a href="{% url 'clientes:list' %}" class="button is-info">Clientes</a>
+                    <a href="{% url 'clientes:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Clientes</a>
                 {% endif %}
                 {% if request.user|has_role:'admin_sistema,admin_empleados' %}
-                    <a href="{% url 'empleados:list' %}" class="button is-info">Empleados</a>
+                    <a href="{% url 'empleados:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Empleados</a>
                 {% endif %}
                 {% if request.user|has_role:'admin_sistema,ing_civil,admin_materiales' %}
-                    <a href="{% url 'instalaciones:list' %}" class="button is-info">Instalaciones</a>
+                    <a href="{% url 'instalaciones:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Instalaciones</a>
                 {% endif %}
                 {% if request.user|has_role:'admin_sistema,admin_materiales' %}
-                    <a href="{% url 'materiales:list' %}" class="button is-info">Materiales</a>
+                    <a href="{% url 'materiales:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Materiales</a>
                 {% endif %}
                 {% if request.user|has_role:'admin_sistema,ing_civil,admin_materiales' %}
-                    <a href="{% url 'pedidos:list' %}" class="button is-info">Pedidos</a>
+                    <a href="{% url 'pedidos:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Pedidos</a>
                 {% endif %}
                 {% if request.user|has_role:'admin_sistema,admin_empleados' %}
-                    <a href="{% url 'proveedores:list' %}" class="button is-info">Proveedores</a>
+                    <a href="{% url 'proveedores:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Proveedores</a>
                 {% endif %}
                 {# {% if user|has_role:'doctor,nurse' %} #}
-                    {# <a href="{% url 'puestos:list' %}" class="button is-info">Puestos</a> #}
+                    {# <a href="{% url 'puestos:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Puestos</a> #}
                 {# {% endif %} #}
                 {# {% if user|has_role:'doctor,nurse' %} #}
-                    {# <a href="{% url 'users:list' %}" class="button is-info">Usuarios</a> #}
+                    {# <a href="{% url 'users:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Usuarios</a> #}
                 {# {% endif %} #}
 </section>
 
