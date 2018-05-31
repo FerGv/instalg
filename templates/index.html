@@ -40,28 +40,28 @@
 			    </a>
                 <br><br>
                 {% if request.user|has_role:'admin_sistema,ing_civil' %}
-                    <a href="{% url 'clientes:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Clientes</a>
+                    <a href="{% url 'clientes:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Clientes</a><br>
                 {% endif %}
                 {% if request.user|has_role:'admin_sistema,admin_empleados' %}
-                    <a href="{% url 'empleados:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Empleados</a>
+                    <a href="{% url 'empleados:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Empleados</a><br>
                 {% endif %}
                 {% if request.user|has_role:'admin_sistema,ing_civil,admin_materiales' %}
-                    <a href="{% url 'instalaciones:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Instalaciones</a>
+                    <a href="{% url 'instalaciones:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Instalaciones</a><br>
                 {% endif %}
                 {% if request.user|has_role:'admin_sistema,admin_materiales' %}
-                    <a href="{% url 'materiales:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Materiales</a>
+                    <a href="{% url 'materiales:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Materiales</a><br>
                 {% endif %}
                 {% if request.user|has_role:'admin_sistema,ing_civil,admin_materiales' %}
-                    <a href="{% url 'pedidos:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Pedidos</a>
+                    <a href="{% url 'pedidos:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Pedidos</a><br>
                 {% endif %}
                 {% if request.user|has_role:'admin_sistema,admin_empleados' %}
-                    <a href="{% url 'proveedores:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Proveedores</a>
+                    <a href="{% url 'proveedores:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Proveedores</a><br>
                 {% endif %}
                 {# {% if user|has_role:'doctor,nurse' %} #}
-                    {# <a href="{% url 'puestos:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Puestos</a> #}
+                    {# <a href="{% url 'puestos:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Puestos</a><br> #}
                 {# {% endif %} #}
                 {# {% if user|has_role:'doctor,nurse' %} #}
-                    {# <a href="{% url 'users:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Usuarios</a> #}
+                    {# <a href="{% url 'users:list' %}" class="button is-info" style="width: 50%; border-radius: 10px;">Usuarios</a><br> #}
                 {# {% endif %} #}
 </section>
 
