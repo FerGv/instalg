@@ -5,7 +5,7 @@ import pymysql; pymysql.install_as_MySQLdb() # Se instala el driver para conecta
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', '')
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', os.getenv('DJANGO_ALLOWED_HOSTS', '')]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
