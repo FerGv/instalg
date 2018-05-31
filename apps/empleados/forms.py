@@ -8,7 +8,6 @@ class EmpleadoForm(forms.ModelForm):
         model = Empleado
         fields = [
             'numero',
-            'puesto',
             'nombre',
             'apellido_paterno',
             'apellido_materno',

@@ -32,8 +32,8 @@
             </section>
 
             <section class="section has-text-centered">
-                <input class="input" type="text-centered" placeholder="RFC del cliente" style=" width: 50%; margin-left: -5px;">    
-                <button class="button is-link">Buscar</button>
+                {# <input class="input" type="text-centered" placeholder="RFC del cliente" style=" width: 50%; margin-left: -5px;">     #}
+                {# <button class="button is-link">Buscar</button> #}
     <a href="{% url 'materiales:create' %}" class="button is-primary">Agregar +</a>
                 <br><br>
                 <table class="table is-fullwidth is-hoverable">
@@ -43,7 +43,7 @@
                 <th>Proveedor</th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
-                <th>Existencia (unidades)</th>
+                <th>Existencia</th>
                 <th>Precio</th>
                 <th>Acciones</th>
             </tr>
@@ -55,11 +55,27 @@
                     <td>{{ material.proveedor }}</td>
                     <td>{{ material.nombre }}</td>
                     <td>{{ material.descripcion }}</td>
-                    <td>{{ material.existencia }}</td>
+                    <td>{{ material.existencia }} {{ material.unidades }}</td>
                     <td>$ {{ material.precio }}</td>
                     <td>
-                        <a href="{% url 'materiales:update' material.pk %}">Editar</a>
-                        <a href="{% url 'materiales:delete' material.pk %}">Eliminar</a>
+                        <a href="{% url 'materiales:detail' material.pk %}" class="button is-info is-outlined" title="Ver detalle">
+                            {# <span>Editar</span> #}
+                            <span class="icon is-small">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </a>
+                        <a href="{% url 'materiales:update' material.pk %}" class="button is-success is-outlined" title="Editar">
+                            {# <span>Editar</span> #}
+                            <span class="icon is-small">
+                                <i class="fas fa-pencil-alt"></i>
+                            </span>
+                        </a>
+                        <a href="{% url 'materiales:delete' material.pk %}" class="button is-danger is-outlined" title="Eliminar">
+                            {# <span>Eliminar</span> #}
+                            <span class="icon is-small">
+                                <i class="fas fa-trash"></i>
+                            </span>
+                        </a>
                     </td>
                 </tr>
             {% empty %}

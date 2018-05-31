@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Clientes</title>
+        <title>Proveedores</title>
         <!-- CSS y JavaScrip-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"> 
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
@@ -22,7 +22,7 @@
                       <i class="fas fa-arrow-left"></i>
                    </span>
                     </a>
-                    Lista de Clientes
+                    Lista de Proveedores
                   </h1>
                   <h2 class="subtitle">
                   
@@ -32,16 +32,18 @@
             </section>
 
             <section class="section has-text-centered">
-                <input class="input" type="text-centered" placeholder="RFC del cliente" style=" width: 50%; margin-left: -5px;">    
-                <button class="button is-link">Buscar</button>
-    <a href="{% url 'clientes:create' %}" class="button is-primary">Agregar +</a>
+                {# <input class="input" type="text-centered" placeholder="RFC del cliente" style=" width: 50%; margin-left: -5px;">     #}
+                {# <button class="button is-link">Buscar</button> #}
+    <a href="{% url 'proveedores:create' %}" class="button is-primary">Agregar +</a>
                 <br><br>
                 <table class="table is-fullwidth is-hoverable">
                     <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Email</th>
                 <th>Empresa</th>
                 <th>Acciones</th>
             </tr>
@@ -51,11 +53,29 @@
                 <tr>
                     <td><a href="{% url 'proveedores:detail' proveedor.pk %}">{{ proveedor.pk }}</a></td>
                     <td>{{ proveedor.nombre }}</td>
-                    <td>{{ proveedor.apellido }}</td>
+                    <td>{{ proveedor.apellido_paterno }}</td>
+                    <td>{{ proveedor.apellido_materno }}</td>
+                    <td>{{ proveedor.email }}</td>
                     <td>{{ proveedor.empresa }}</td>
                     <td>
-                        <a href="{% url 'proveedores:update' proveedor.pk %}">Editar</a>
-                        <a href="{% url 'proveedores:delete' proveedor.pk %}">Eliminar</a>
+                        <a href="{% url 'proveedores:detail' proveedor.pk %}" class="button is-info is-outlined" title="Ver detalle">
+                            {# <span>Editar</span> #}
+                            <span class="icon is-small">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </a>
+                        <a href="{% url 'proveedores:update' proveedor.pk %}" class="button is-success is-outlined" title="Editar">
+                            {# <span>Editar</span> #}
+                            <span class="icon is-small">
+                                <i class="fas fa-pencil-alt"></i>
+                            </span>
+                        </a>
+                        <a href="{% url 'proveedores:delete' proveedor.pk %}" class="button is-danger is-outlined" title="Eliminar">
+                            {# <span>Eliminar</span> #}
+                            <span class="icon is-small">
+                                <i class="fas fa-trash"></i>
+                            </span>
+                        </a>
                     </td>
                 </tr>
             {% empty %}

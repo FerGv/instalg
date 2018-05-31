@@ -1,22 +1,3 @@
-{% extends "base.html" %}
-
-{% block title %}Detalle{% endblock title %}
-
-{% block extra-css %}{% endblock extra-css %}
-
-{% block content %}
-    <h1 class="title">Detalle</h1>
-
-    
-
-    <a href="{% url 'proveedores:list' %}">Volver</a>
-    <a href="{% url 'proveedores:delete' proveedor.pk %}">Eliminar</a>
-    <a href="{% url 'proveedores:update' proveedor.pk %}">Editar</a>
-{% endblock content %}
-
-{% block extra-js %}{% endblock extra-js %}
-
-
 <!DOCTYPE html>
 
 <html>
@@ -49,7 +30,9 @@
         <section class="table-row-hover-background-color has-text-centered">
                 <p><b>Número:</b> {{ proveedor.numero }}</p>
                 <p><b>Nombre:</b> {{ proveedor.nombre }}</p>
-                <p><b>Apellido:</b> {{ proveedor.apellido }}</p>
+                <p><b>Apellido Paterno:</b> {{ proveedor.apellido_paterno }}</p>
+                <p><b>Apellido Materno:</b> {{ proveedor.apellido_materno }}</p>
+                <p><b>Email:</b> {{ proveedor.email }}</p>
                 <p><b>Empresa:</b> {{ proveedor.empresa }}</p><br><br>
 
 

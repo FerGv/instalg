@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'bulma',
     'django_seed',
     'widget_tweaks',
+    'rolepermissions',
 ]
 
 MIDDLEWARE = [
@@ -101,3 +102,5 @@ EMAIL_HOST = os.getenv('DJANGO_EMAIL_HOST', '')
 EMAIL_HOST_USER = os.getenv('DJANGO_EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.getenv('DJANGO_EMAIL_HOST_PASSWORD', '')
 EMAIL_PORT = os.getenv('DJANGO_EMAIL_PORT', '')
+
+ROLEPERMISSIONS_MODULE = 'instalg.roles'

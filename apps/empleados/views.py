@@ -5,6 +5,8 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+from rolepermissions.roles import assign_role
+
 from .models import Empleado
 from .forms import EmpleadoForm
 
@@ -16,10 +18,16 @@ class EmpleadoCreate(CreateView):
 
     def form_valid(self, form):
         empleado = form.save()
-        user = User.objects.create(empleado.numero, empleado.email, empleado.email)
+        user = User.objects.create_user(empleado.numero, empleado.email, empleado.email)
         user.first_name = empleado.nombre
         user.last_name = empleado.apellido_paterno
         user.save()
+
+        if empleado.tipo == 'IC': assign_role(user, 'ing_civil')
+        elif empleado.tipo == 'AM': assign_role(user, 'admin_materiales')
+        elif empleado.tipo == 'AE': assign_role(user, 'admin_empleados')
+        else: assign_role(user, 'admin_sistema')
+
         empleado.user = user
         empleado.save()
         return redirect('empleados:detail', pk=empleado.pk)
@@ -39,6 +47,11 @@ class EmpleadoUpdate(UpdateView):
         empleado.user.first_name = empleado.nombre
         empleado.user.last_name = empleado.apellido_paterno
         empleado.user.save()
+
+        if empleado.tipo == 'IC': assign_role(user, 'ing_civil')
+        elif empleado.tipo == 'AM': assign_role(user, 'admin_materiales')
+        elif empleado.tipo == 'AE': assign_role(user, 'admin_empleados')
+        else: assign_role(user, 'admin_sistema')
         # empleado.save()
         return redirect('empleados:detail', pk=empleado.pk)
     

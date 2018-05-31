@@ -35,9 +35,9 @@
     <p><b>Hora:</b> {{ pedido.hora }}</p>
     <p><b>Subtotal:</b> {{ pedido.subtotal }}</p>
     <p><b>IVA:</b> {{ pedido.iva }}</p>
-    <p><b>Total:</b> {{ pedido.total }}</p>
+    <p><b>Total:</b> {{ pedido.total }}</p><br><br>
     <ul>
-        <table class="table is-hoverable">
+        <table class="table is-hoverable is-fullwidth">
             <caption>Materiales</caption>
             <thead>
                 <tr>
@@ -52,7 +52,7 @@
                     <tr>
                         <td>{{ item.material }}</td>
                         <td>{{ item.precio_unitario }}</td>
-                        <td>{{ item.cantidad }}</td>
+                        <td>{{ item.cantidad }} {{ item.material.unidades }}</td>
                         <td>{{ item.importe }}</td>
                     </tr>
                 {% endfor %}

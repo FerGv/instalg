@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from apps.puestos.models import Puesto
+# from apps.puestos.models import Puesto
 
 
 TIPOS_EMPLEADO = (
@@ -13,7 +13,7 @@ TIPOS_EMPLEADO = (
 
 class Empleado(models.Model):
 	numero = models.CharField("Número de Empleado", max_length=50)
-	puesto = models.ForeignKey(Puesto, on_delete=models.CASCADE)
+	# puesto = models.ForeignKey(Puesto, on_delete=models.CASCADE)
 	nombre = models.CharField("Nombre", max_length=50)
 	apellido_paterno = models.CharField("Apellido Paterno", max_length=50)
 	apellido_materno = models.CharField("Apellido Materno", max_length=50)

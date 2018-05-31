@@ -12,5 +12,5 @@ class Proveedor(models.Model):
     user = models.OneToOneField(User, null=True)
 
     def __str__(self):
-        return f"{self.nombre} {self.apellido}"
+        return f"{self.nombre} {self.apellido_paterno} {self.apellido_materno}"
         

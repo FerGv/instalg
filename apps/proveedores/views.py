@@ -5,6 +5,8 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+from rolepermissions.roles import assign_role
+
 from .models import Proveedor
 from .forms import ProveedorForm
 
@@ -16,10 +18,11 @@ class ProveedorCreate(CreateView):
 
     def form_valid(self, form):
         proveedor = form.save()
-        user = User.objects.create(proveedor.numero, proveedor.email, proveedor.email)
+        user = User.objects.create_user(proveedor.numero, proveedor.email, proveedor.email)
         user.first_name = proveedor.nombre
         user.last_name = proveedor.apellido_paterno
         user.save()
+        assign_role(user, 'proveedor')
         proveedor.user = user
         proveedor.save()
         return redirect('proveedores:detail', pk=proveedor.pk)

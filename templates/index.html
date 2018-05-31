@@ -1,36 +1,70 @@
-{% extends "base.html" %}
+{% load permission_tags %}
+<!DOCTYPE html>
 
-{% block title %}Index{% endblock title %}
+<html>
 
-{% block extra-css %}{% endblock extra-css %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Binvenido</title>
+        <!-- CSS y JavaScrip-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"> 
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    </head>
 
-{% block content %}
-    <h1>Index</h1>
-    <a href="{% url 'logout' %}">Cerrar sesión</a><br>
-    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'IC' %} #}
-        <a href="{% url 'clientes:list' %}" class="button is-info">Clientes</a>
-    {# {% endif %} #}
-    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'AE' %} #}
-        <a href="{% url 'empleados:list' %}" class="button is-info">Empleados</a>
-    {# {% endif %} #}
-    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'IC' %} #}
-        <a href="{% url 'instalaciones:list' %}" class="button is-info">Instalaciones</a>
-    {# {% endif %} #}
-    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'AM' %} #}
-        <a href="{% url 'materiales:list' %}" class="button is-info">Materiales</a>
-    {# {% endif %} #}
-    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'IC' %} #}
-        <a href="{% url 'pedidos:list' %}" class="button is-info">Pedidos</a>
-    {# {% endif %} #}
-    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'AE' %} #}
-        <a href="{% url 'proveedores:list' %}" class="button is-info">Proveedores</a>
-    {# {% endif %} #}
-    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'AE' %} #}
-        <a href="{% url 'puestos:list' %}" class="button is-info">Puestos</a>
-    {# {% endif %} #}
-    {# {% if request.user.empleado.tipo == 'AS' %} #}
-        {# <a href="{% url 'users:list' %}" class="button is-info">Usuarios</a> #}
-    {# {% endif %} #}
-{% endblock content %}
+    <body>
+        <div class="header">
+            <section class="hero is-info">
+              <div class="hero-body">
+                <div class="container">
+                  <h1 class="title">
+                    Bienvenido
+                  </h1>
+                  <h2 class="subtitle">
+                    {% if request.user.first_name %}
+                        {{ request.user.get_full_name }}
+                    {% else %}
+                        {{ request.user.username }}
+                    {% endif %}
+                  </h2>
+                </div>
+              </div>
+            </section>
 
-{% block extra-js %}{% endblock extra-js %}
+            <section class="section has-text-centered">
+                <a href="{% url 'logout' %}" class="button is-danger">x Cerrar sesión</a><br><br>
+                {% if request.user|has_role:'admin_sistema,ing_civil' %}
+                    <a href="{% url 'clientes:list' %}" class="button is-info">Clientes</a>
+                {% endif %}
+                {% if request.user|has_role:'admin_sistema,admin_empleados' %}
+                    <a href="{% url 'empleados:list' %}" class="button is-info">Empleados</a>
+                {% endif %}
+                {% if request.user|has_role:'admin_sistema,ing_civil,admin_materiales' %}
+                    <a href="{% url 'instalaciones:list' %}" class="button is-info">Instalaciones</a>
+                {% endif %}
+                {% if request.user|has_role:'admin_sistema,admin_materiales' %}
+                    <a href="{% url 'materiales:list' %}" class="button is-info">Materiales</a>
+                {% endif %}
+                {% if request.user|has_role:'admin_sistema,ing_civil,admin_materiales' %}
+                    <a href="{% url 'pedidos:list' %}" class="button is-info">Pedidos</a>
+                {% endif %}
+                {% if request.user|has_role:'admin_sistema,admin_empleados' %}
+                    <a href="{% url 'proveedores:list' %}" class="button is-info">Proveedores</a>
+                {% endif %}
+                {# {% if user|has_role:'doctor,nurse' %} #}
+                    {# <a href="{% url 'puestos:list' %}" class="button is-info">Puestos</a> #}
+                {# {% endif %} #}
+                {# {% if user|has_role:'doctor,nurse' %} #}
+                    {# <a href="{% url 'users:list' %}" class="button is-info">Usuarios</a> #}
+                {# {% endif %} #}
+</section>
+
+        <footer class="footer has-text-centered" roler="footer">
+            <img src="/static/img/logo_llama_gas.png" width="60" height="60">
+            <p class="content is-small"><b>WWW.INSTALG.COM</b></p>
+            <p class="content is-small">Sistema dedicado a control de materiales, intalaciones de gas y empleados.</p>
+            <br>
+            <p class="content is-small">Todos los derechos reservados &copy</p> 
+        </footer> 
+    </body>
+</html>

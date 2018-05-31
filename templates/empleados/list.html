@@ -32,8 +32,8 @@
             </section>
 
             <section class="section has-text-centered">
-                <input class="input" type="text-centered" placeholder="RFC del cliente" style=" width: 50%; margin-left: -5px;">    
-                <button class="button is-link">Buscar</button>
+                {# <input class="input" type="text-centered" placeholder="RFC del cliente" style=" width: 50%; margin-left: -5px;">     #}
+                {# <button class="button is-link">Buscar</button> #}
     <a href="{% url 'empleados:create' %}" class="button is-primary">Agregar +</a>
                 <br><br>
                 <table class="table is-fullwidth is-hoverable">
@@ -44,6 +44,7 @@
                 <th>Nombre</th>
                 <th>Apellido Paterno</th>
                 <th>Apellido Materno</th>
+                <th>Email</th>
                 <th>Calle</th>
                 <th>Colonia</th>
                 <th>Delegación</th>
@@ -56,10 +57,11 @@
             {% for empleado in empleado_list %}
                 <tr>
                     <td><a href="{% url 'empleados:detail' empleado.pk %}">{{ empleado.numero }}</a></td>
-                    <td>{{ empleado.puesto }}</td>
+                    <td>{{ empleado.tipo }}</td>
                     <td>{{ empleado.nombre }}</td>
                     <td>{{ empleado.apellido_paterno }}</td>
                     <td>{{ empleado.apellido_materno }}</td>
+                    <td>{{ empleado.email }}</td>
                     <td>{{ empleado.calle }}</td>
                     <td>{{ empleado.colonia }}</td>
                     <td>{{ empleado.delegacion }}</td>
