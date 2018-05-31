@@ -1,30 +1,67 @@
-{% extends "base.html" %}
-
-{% block title %}Detalle{% endblock title %}
-
-{% block extra-css %}{% endblock extra-css %}
-
-{% block content %}
-    <h1 class="title">Detalle</h1>
-
-    <p><b># Instalación:</b> {{ instalacion.numero }}</p>
-    <p><b># Piso:</b> {{ instalacion.numero_piso }}</p>
-    <p><b>Fecha:</b> {{ instalacion.fecha }}</p>
-    <p><b>Hora:</b> {{ instalacion.hora }}</p>
-    <p><b>Cliente:</b> {{ instalacion.cliente }}</p>
-    <p><b>Calle:</b> {{ instalacion.calle }}</p>
-    <p><b>Colonia:</b> {{ instalacion.colonia }}</p>
-    <p><b>Código Postal:</b> {{ instalacion.codigo_postal }}</p>
-    <p><b>Empleados:</b></p>
-    <ul>
-        {% for empleado in instalacion.empleados.all %}
-            <li>* {{ empleado }}</li>
-        {% endfor %}
-    </ul>
+    
 
     <a href="{% url 'instalaciones:list' %}">Volver</a>
     <a href="{% url 'instalaciones:delete' instalacion.pk %}">Eliminar</a>
     <a href="{% url 'instalaciones:update' instalacion.pk %}">Editar</a>
-{% endblock content %}
 
-{% block extra-js %}{% endblock extra-js %}
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Detalle de instalacion</title>
+        <!-- CSS y JavaScrip-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+        <link rel="stylesheet" href="css/diseño.css">   
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    </head>
+
+    <body>
+        <section class="hero is-info">
+            <div class="hero-body">
+               <div class="container">
+                <h1 class="title">
+                  <a class="button" href="{% url 'instalaciones:list' %}">
+                    <span class="icon is-small">
+                        <i class="fas fa-arrow-left"></i>
+                    </span>
+                  </a>
+                    Detalle de instalacion
+                </h1>
+               </div>
+            </div>
+        </section>
+        <br><br>
+        <section class="table-row-hover-background-color has-text-centered">
+                <p><b># Instalación:</b> {{ instalacion.numero }}</p>
+                <p><b># Piso:</b> {{ instalacion.numero_piso }}</p>
+                <p><b>Fecha:</b> {{ instalacion.fecha }}</p>
+                <p><b>Hora:</b> {{ instalacion.hora }}</p>
+                <p><b>instalacion:</b> {{ instalacion.instalacion }}</p>
+                <p><b>Calle:</b> {{ instalacion.calle }}</p>
+                <p><b>Colonia:</b> {{ instalacion.colonia }}</p>
+                <p><b>Código Postal:</b> {{ instalacion.codigo_postal }}</p>
+                <p><b>Empleados:</b></p>
+                <ul>
+                    {% for empleado in instalacion.empleados.all %}
+                        <li>* {{ empleado }}</li>
+                    {% endfor %}
+                </ul><br><br>
+
+
+                {# <a class="button is-info" href="{% url 'instalaciones:list' %}">Volver</a> #}
+                <a class="button is-success" href="{% url 'instalaciones:update' instalacion.pk %}">Editar</a>
+                <a class="button is-danger" href="{% url 'instalaciones:delete' instalacion.pk %}">Eliminar</a>
+        </section>
+        <footer class="footer has-text-centered" roler="footer">
+            <img src="/static/img/logo_llama_gas.png" width="60" height="60">
+            <p class="content is-small"><b>WWW.INSTALG.COM</b></p>
+            <p class="content is-small">Sistema dedicado a control de materiales, intalaciones de gas y empleados.</p>
+            <br>
+            <p class="content is-small">Todos los derechos reservados &copy</p> 
+        </footer> 
+    </body>
+</html>
+

@@ -1,23 +1,68 @@
-{% extends "base.html" %}
 {% load bulma_tags %}
+<!DOCTYPE html>
 
-{% block title %}Formulario{% endblock title %}
+<html>
 
-{% block extra-css %}{% endblock extra-css %}
+    <head>
+        <meta charset="utf-8">
+        <title>Agregar Clientes</title>
+        <!-- CSS y JavaScrip-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+        <link rel="stylesheet" href="css/diseño.css">   
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    </head>
 
-{% block content %}
-    <h1 class="title">Formulario Proveedor</h1>
-    <br>
-    {{ form.non_field_errors }}
-    <form method="post">
-        {% csrf_token %}
+    <body>
+        <section class="hero is-info">
+            <div class="hero-body">
+               <div class="container">
+                <h1 class="title">
+                  <a class="button" href="{% url 'proveedores:list' %}">
+                    <span class="icon is-small">
+                        <i class="fas fa-arrow-left"></i>
+                    </span>
+                  </a>
+                    Agregar Clientes
+                </h1>
+               </div>
+            </div>
+        </section>
         
-        {{ form|bulma }}
+        <section class="section has-text-centered">
+            <form method="post">
+        {% csrf_token %}
+            <div class="formusd columns is-centered">
+                <div class="column is-8">
+                    {{ form|bulma }}
+                </div>
+            </div>
 
-        <br>
-        <a href="{{ request.META.HTTP_REFERER }}" class="button is-text">Cancelar</a>
-        <input type="submit" value="Guardar" class="button is-primary">
+                <div class="field is-grouped is-grouped-centered">
+                    <div class="buttonuds">
+                        <p class="control">
+                        <button class="button is-link">
+                            <span>Agregar</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-plus-circle"></i>
+                            </span>
+                        </button>
+                        <a class="button is-danger" href="{{ request.META.HTTP_REFERER }}">
+                            <span>Cancelar</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-times"></i>
+                            </span>
+                        </a>
+                        <br><br><br>
+                    </div>
     </form>
-{% endblock content %}
+        </section>
+        <footer class="footer has-text-centered" roler="footer">
+            <img src="/static/img/logo_llama_gas.png" width="60" height="60">
+            <p class="content is-small"><b>WWW.INSTALG.COM</b></p>
+            <p class="content is-small">Sistema dedicado a control de materiales, intalaciones de gas y empleados.</p>
+            <br>
+            <p class="content is-small">Todos los derechos reservados &copy</p> 
+        </footer> 
+    </body>
+</html>
 
-{% block extra-js %}{% endblock extra-js %}

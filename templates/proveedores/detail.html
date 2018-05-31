@@ -7,10 +7,7 @@
 {% block content %}
     <h1 class="title">Detalle</h1>
 
-    <p><b>ID:</b> {{ proveedor.pk }}</p>
-    <p><b>Nombre:</b> {{ proveedor.nombre }}</p>
-    <p><b>Apellido:</b> {{ proveedor.apellido }}</p>
-    <p><b>Empresa:</b> {{ proveedor.empresa }}</p>
+    
 
     <a href="{% url 'proveedores:list' %}">Volver</a>
     <a href="{% url 'proveedores:delete' proveedor.pk %}">Eliminar</a>
@@ -18,3 +15,55 @@
 {% endblock content %}
 
 {% block extra-js %}{% endblock extra-js %}
+
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Detalle de proveedor</title>
+        <!-- CSS y JavaScrip-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+        <link rel="stylesheet" href="css/diseño.css">   
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    </head>
+
+    <body>
+        <section class="hero is-info">
+            <div class="hero-body">
+               <div class="container">
+                <h1 class="title">
+                  <a class="button" href="{% url 'proveedores:list' %}">
+                    <span class="icon is-small">
+                        <i class="fas fa-arrow-left"></i>
+                    </span>
+                  </a>
+                    Detalle de proveedor
+                </h1>
+               </div>
+            </div>
+        </section>
+        <br><br>
+        <section class="table-row-hover-background-color has-text-centered">
+                <p><b>Número:</b> {{ proveedor.numero }}</p>
+                <p><b>Nombre:</b> {{ proveedor.nombre }}</p>
+                <p><b>Apellido:</b> {{ proveedor.apellido }}</p>
+                <p><b>Empresa:</b> {{ proveedor.empresa }}</p><br><br>
+
+
+                {# <a class="button is-info" href="{% url 'proveedores:list' %}">Volver</a> #}
+                <a class="button is-success" href="{% url 'proveedores:update' proveedor.pk %}">Editar</a>
+                <a class="button is-danger" href="{% url 'proveedores:delete' proveedor.pk %}">Eliminar</a>
+        </section>
+        <footer class="footer has-text-centered" roler="footer">
+            <img src="/static/img/logo_llama_gas.png" width="60" height="60">
+            <p class="content is-small"><b>WWW.INSTALG.COM</b></p>
+            <p class="content is-small">Sistema dedicado a control de materiales, intalaciones de gas y empleados.</p>
+            <br>
+            <p class="content is-small">Todos los derechos reservados &copy</p> 
+        </footer> 
+    </body>
+</html>
+

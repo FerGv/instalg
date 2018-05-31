@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'apps.usuarios',
     'bulma',
     'django_seed',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

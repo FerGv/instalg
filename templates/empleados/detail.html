@@ -7,16 +7,7 @@
 {% block content %}
     <h1 class="title">Detalle</h1>
 
-    <p><b># Empleado:</b> {{ empleado.rfc }}</p>
-    <p><b>Nombre:</b> {{ empleado.nombre }}</p>
-    <p><b>Puesto:</b> {{ empleado.puesto }}</p>
-    <p><b>Apellido Paterno:</b> {{ empleado.apellido_paterno }}</p>
-    <p><b>Apellido Materno:</b> {{ empleado.apellido_materno }}</p>
-    <p><b>Calle:</b> {{ empleado.calle }}</p>
-    <p><b>Colonia:</b> {{ empleado.colonia }}</p>
-    <p><b>Delegación:</b> {{ empleado.delegacion }}</p>
-    <p><b>Municipio:</b> {{ empleado.municipio }}</p>
-    <p><b>Código Postal:</b> {{ empleado.codigo_postal }}</p>
+    
 
     <a href="{% url 'empleados:list' %}">Volver</a>
     <a href="{% url 'empleados:delete' empleado.pk %}">Eliminar</a>
@@ -24,3 +15,62 @@
 {% endblock content %}
 
 {% block extra-js %}{% endblock extra-js %}
+
+
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Detalle de empleado</title>
+        <!-- CSS y JavaScrip-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+        <link rel="stylesheet" href="css/diseño.css">   
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    </head>
+
+    <body>
+        <section class="hero is-info">
+            <div class="hero-body">
+               <div class="container">
+                <h1 class="title">
+                  <a class="button" href="{% url 'empleados:list' %}">
+                    <span class="icon is-small">
+                        <i class="fas fa-arrow-left"></i>
+                    </span>
+                  </a>
+                    Detalle de empleado
+                </h1>
+               </div>
+            </div>
+        </section>
+        <br><br>
+        <section class="table-row-hover-background-color has-text-centered">
+                <p><b># Empleado:</b> {{ empleado.rfc }}</p>
+                <p><b>Nombre:</b> {{ empleado.nombre }}</p>
+                <p><b>Puesto:</b> {{ empleado.puesto }}</p>
+                <p><b>Apellido Paterno:</b> {{ empleado.apellido_paterno }}</p>
+                <p><b>Apellido Materno:</b> {{ empleado.apellido_materno }}</p>
+                <p><b>Calle:</b> {{ empleado.calle }}</p>
+                <p><b>Colonia:</b> {{ empleado.colonia }}</p>
+                <p><b>Delegación:</b> {{ empleado.delegacion }}</p>
+                <p><b>Municipio:</b> {{ empleado.municipio }}</p>
+                <p><b>Código Postal:</b> {{ empleado.codigo_postal }}</p><br><br>
+
+
+                {# <a class="button is-info" href="{% url 'empleados:list' %}">Volver</a> #}
+                <a class="button is-success" href="{% url 'empleados:update' empleado.pk %}">Editar</a>
+                <a class="button is-danger" href="{% url 'empleados:delete' empleado.pk %}">Eliminar</a>
+        </section>
+        <footer class="footer has-text-centered" roler="footer">
+            <img src="/static/img/logo_llama_gas.png" width="60" height="60">
+            <p class="content is-small"><b>WWW.INSTALG.COM</b></p>
+            <p class="content is-small">Sistema dedicado a control de materiales, intalaciones de gas y empleados.</p>
+            <br>
+            <p class="content is-small">Todos los derechos reservados &copy</p> 
+        </footer> 
+    </body>
+</html>
+

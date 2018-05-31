@@ -1,0 +1,84 @@
+
+body {
+	background-color: #f8f8f8;
+	text-align: center;
+}
+
+/*------------Login-----------*/
+.page-container {
+   margin: 120px 30px -800px;
+}
+
+/*------------box login-----------*/
+#login {
+	margin: 50px auto;
+	width: 400px;
+}
+
+
+#login img{
+	background-color: rgb(254,254,254); opacity: 0.8;
+	-webkit-border-radius: 22px 22px 0 0;
+	-moz-border-radius: 22px 22px 0 0;
+	border-radius: 22px 22px 0 0;
+	margin: -6px auto;
+	width: 400px;
+	text-align: center;
+	border-style: hidden;
+	box-shadow: 0px 0px 40px #2E86C1, 0px 0px 100px #7F8C8D;
+}
+
+#login fieldset {
+	background-color: rgb(0, 0, 0); opacity: 0.8 ;
+	-webkit-border-radius: 0 0 20px 20px;
+	-moz-border-radius: 0 0 20px 20px;
+	border-radius: 0 0 20px 20px;
+	padding: 20px 26px;
+	font-family: 'Baloo Thambi', cursive;
+    text-align: center;
+    color: #fff;
+    border-style: hidden;
+    box-shadow: 0px 0px 40px #2E86C1, 0px 0px 100px #7F8C8D;
+}
+
+#login fieldset input[type="numempleado"], #login fieldset input[type="password"] {
+	
+	background-color: #ffff;
+	color: #777;
+	padding: 4px 10px;
+	width: 200px;
+}
+
+
+#login fieldset a[type="ingresar"] {
+	border:none;
+	outline: none;
+	color:#fff;
+	width: 200px;
+	cursor: pointer;
+	background-color: #3498DB;
+
+}
+
+#login fieldset a[type="ingresar"]:hover {
+	
+	top: 2px;
+	background-color: #1F618D;
+	color: #fff;
+}
+
+
+/*-------FOOTER-----*/
+ .info p{
+	font-family: 'Cantora One', sans-serif;
+    color: #fff;
+}
+
+.info img{
+	width: 70px;
+	height: 70px;
+}
+
+
+
+

@@ -1,13 +1,62 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 
 {% block title %}Iniciar Sesión{% endblock %}
 
 {% block content %}
-    <h2>Iniciar Sesión</h2>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a><br>
-        <button type="submit">Iniciar Sesión</button>
+        {# <button type="submit">Iniciar Sesión</button> #}
+
+    <div class="page-container">
+            <div id="login">
+                <img src="/static/img/letrero.png">
+                <fieldset>
+                    <h1>INICIAR SESIÓN</h1>
+                    <br><br>
+                    <div class="field is-grouped is-grouped-centered">
+                        <div>
+                            <label class="field-label">#Empleado</label>
+                        </div>
+                          <p class="control has-icons-right">
+                            {% render_field form.username class="input" placeholder='Num. Empleado' %}
+                            {# <input class="input" type="text" placeholder="Num. Empleado"> #}
+                            <span class="icon is-small is-right">
+                              <i class="fas fa-user"></i>
+                            </span>
+                          </p>
+                    </div>
+                    <div class="field is-grouped is-grouped-centered">
+                        <div >
+                            <label class="field-label">Contraseña</label>
+                        </div>
+                          <p class="control has-icons-right">
+                            {% render_field form.password type="password" class="input" placeholder='Contraseña' %}
+                            {# <input class="input" type="password" placeholder="Password"> #}
+                            <span class="icon is-small is-right">
+                              <i class="fas fa-lock"></i>
+                            </span>
+                          </p>
+                    </div>
+                    <br>
+                    <div class="field is-grouped is-grouped-centered">
+                        <p class="control">
+                            <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a><br>
+
+                            <button type="ingresar" class="button">Ingresar</button>
+                        </p>
+                        <br><br><br>
+                    </div>
+
+                </fieldset>
+                </div>
+                <div class="info">
+                    <img src="/static/img/logo_llama_gas.png" >
+                    <p>WWW.INSTALG.COM</p>
+                    <br><br>
+                    <p>Sistema dedicado a control de materiales, intalaciones de gas y empleados.</p>
+                    <p>Todos los derechos reservados &copy</p>
+                </div>
+            </div>
     </form>
 {% endblock %}

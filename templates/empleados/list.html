@@ -1,35 +1,43 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
 
-{% block title %}Lista de Empleados{% endblock title %}
+<html>
 
-{% block extra-css %}{% endblock extra-css %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Empleados</title>
+        <!-- CSS y JavaScrip-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"> 
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    </head>
 
-{% block content %}
-    <div class="header">
-        <section class="hero is-info">
-            <div class="hero-body">
-            <div class="container">
+    <body>
+        <div class="header">
+            <section class="hero is-info">
+              <div class="hero-body">
+                <div class="container">
                   <h1 class="title">
-                    <a class="button is-link is-info" href="adms.html">
-                    <a href="{% url 'index' %}" class="button is-gray">
-                       <span class="icon is-small">
-                          <i class="fas fa-arrow-left"></i>
-                       </span>
+                    <a class="button" href="{% url 'index' %}">
+                   <span class="icon is-small">
+                      <i class="fas fa-arrow-left"></i>
+                   </span>
                     </a>
-                    Lista de empleados
+                    Lista de Empleados
                   </h1>
+                  <h2 class="subtitle">
+                  
+                  </h2>
                 </div>
-            </div>
-        </section>
-    </div>
-    <section class="section has-text-centered">
-                
-        <input class="input"type="text-centered" placeholder="Clave del Empleado" style=" width: 50%; margin-left: -5px;">
-        <button class="button is-link">Buscar</button>
-        <a class="button is-info" href="{% url 'empleados:create' %}">Agregar</a>
+              </div>
+            </section>
 
-    <table class="table is-hoverable">
-        <thead>
+            <section class="section has-text-centered">
+                <input class="input" type="text-centered" placeholder="RFC del cliente" style=" width: 50%; margin-left: -5px;">    
+                <button class="button is-link">Buscar</button>
+    <a href="{% url 'empleados:create' %}" class="button is-primary">Agregar +</a>
+                <br><br>
+                <table class="table is-fullwidth is-hoverable">
+                    <thead>
             <tr>
                 <th># Empleado</th>
                 <th>Puesto</th>
@@ -83,9 +91,17 @@
                     <td colspan="4">No hay empleados.</td>
                 </tr>
             {% endfor %}
-        </tbody>    
-    </table>
-    </section>
-{% endblock content %}
+        </tbody>  
+                </table>
+        </section>
 
-{% block extra-js %}{% endblock extra-js %}
+        <footer class="footer has-text-centered" roler="footer">
+            <img src="/static/img/logo_llama_gas.png" width="60" height="60">
+            <p class="content is-small"><b>WWW.INSTALG.COM</b></p>
+            <p class="content is-small">Sistema dedicado a control de materiales, intalaciones de gas y empleados.</p>
+            <br>
+            <p class="content is-small">Todos los derechos reservados &copy</p> 
+        </footer> 
+    </body>
+</html>
+

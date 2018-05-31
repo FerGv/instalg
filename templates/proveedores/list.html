@@ -1,17 +1,43 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
 
-{% block title %}Lista de Proveedores{% endblock title %}
+<html>
 
-{% block extra-css %}{% endblock extra-css %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clientes</title>
+        <!-- CSS y JavaScrip-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"> 
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    </head>
 
-{% block content %}
-    <h1 class="title">Lista de proveedores</h1>
-    <a href="{% url 'index' %}" class="button is-gray">Volver a Inicio</a>
-    <a href="{% url 'proveedores:create' %}" class="button is-primary">Registrar nuevo proveedor</a>
-    <br><br>
+    <body>
+        <div class="header">
+            <section class="hero is-info">
+              <div class="hero-body">
+                <div class="container">
+                  <h1 class="title">
+                    <a class="button" href="{% url 'index' %}">
+                   <span class="icon is-small">
+                      <i class="fas fa-arrow-left"></i>
+                   </span>
+                    </a>
+                    Lista de Clientes
+                  </h1>
+                  <h2 class="subtitle">
+                  
+                  </h2>
+                </div>
+              </div>
+            </section>
 
-    <table class="table">
-        <thead>
+            <section class="section has-text-centered">
+                <input class="input" type="text-centered" placeholder="RFC del cliente" style=" width: 50%; margin-left: -5px;">    
+                <button class="button is-link">Buscar</button>
+    <a href="{% url 'clientes:create' %}" class="button is-primary">Agregar +</a>
+                <br><br>
+                <table class="table is-fullwidth is-hoverable">
+                    <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -38,7 +64,16 @@
                 </tr>
             {% endfor %}
         </tbody>
-    </table>
-{% endblock content %}
+                </table>
+        </section>
 
-{% block extra-js %}{% endblock extra-js %}
+        <footer class="footer has-text-centered" roler="footer">
+            <img src="/static/img/logo_llama_gas.png" width="60" height="60">
+            <p class="content is-small"><b>WWW.INSTALG.COM</b></p>
+            <p class="content is-small">Sistema dedicado a control de materiales, intalaciones de gas y empleados.</p>
+            <br>
+            <p class="content is-small">Todos los derechos reservados &copy</p> 
+        </footer> 
+    </body>
+</html>
+

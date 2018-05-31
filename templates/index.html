@@ -7,15 +7,30 @@
 {% block content %}
     <h1>Index</h1>
     <a href="{% url 'logout' %}">Cerrar sesión</a><br>
-
-    <a href="{% url 'clientes:list' %}" class="button is-info">Clientes</a>
-    <a href="{% url 'empleados:list' %}" class="button is-info">Empleados</a>
-    <a href="{% url 'instalaciones:list' %}" class="button is-info">Instalaciones</a>
-    <a href="{% url 'materiales:list' %}" class="button is-info">Materiales</a>
-    <a href="{% url 'pedidos:list' %}" class="button is-info">Pedidos</a>
-    <a href="{% url 'proveedores:list' %}" class="button is-info">Proveedores</a>
-    <a href="{% url 'puestos:list' %}" class="button is-info">Puestos</a>
-    <a href="{% url 'users:list' %}" class="button is-info">Usuarios</a>
+    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'IC' %} #}
+        <a href="{% url 'clientes:list' %}" class="button is-info">Clientes</a>
+    {# {% endif %} #}
+    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'AE' %} #}
+        <a href="{% url 'empleados:list' %}" class="button is-info">Empleados</a>
+    {# {% endif %} #}
+    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'IC' %} #}
+        <a href="{% url 'instalaciones:list' %}" class="button is-info">Instalaciones</a>
+    {# {% endif %} #}
+    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'AM' %} #}
+        <a href="{% url 'materiales:list' %}" class="button is-info">Materiales</a>
+    {# {% endif %} #}
+    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'IC' %} #}
+        <a href="{% url 'pedidos:list' %}" class="button is-info">Pedidos</a>
+    {# {% endif %} #}
+    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'AE' %} #}
+        <a href="{% url 'proveedores:list' %}" class="button is-info">Proveedores</a>
+    {# {% endif %} #}
+    {# {% if request.user.empleado.tipo == 'AS' or request.user.empleado.tipo == 'AE' %} #}
+        <a href="{% url 'puestos:list' %}" class="button is-info">Puestos</a>
+    {# {% endif %} #}
+    {# {% if request.user.empleado.tipo == 'AS' %} #}
+        {# <a href="{% url 'users:list' %}" class="button is-info">Usuarios</a> #}
+    {# {% endif %} #}
 {% endblock content %}
 
 {% block extra-js %}{% endblock extra-js %}
