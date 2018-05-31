@@ -90,3 +90,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # Indicamos donde se guardarán los archivos estáticos (JS, CSS, IMG)
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login'
+LOGOUT_REDIRECT_URL = '/login'
+
+EMAIL_HOST = os.getenv('DJANGO_EMAIL_HOST', '')
+EMAIL_HOST_USER = os.getenv('DJANGO_EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.getenv('DJANGO_EMAIL_HOST_PASSWORD', '')
+EMAIL_PORT = os.getenv('DJANGO_EMAIL_PORT', '')

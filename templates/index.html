@@ -6,6 +6,7 @@
 
 {% block content %}
     <h1>Index</h1>
+    <a href="{% url 'logout' %}">Cerrar sesión</a><br>
 
     <a href="{% url 'clientes:list' %}" class="button is-info">Clientes</a>
     <a href="{% url 'empleados:list' %}" class="button is-info">Empleados</a>
@@ -14,7 +15,7 @@
     <a href="{% url 'pedidos:list' %}" class="button is-info">Pedidos</a>
     <a href="{% url 'proveedores:list' %}" class="button is-info">Proveedores</a>
     <a href="{% url 'puestos:list' %}" class="button is-info">Puestos</a>
-    {# <a href="{% url 'usuarios:list' %}" class="button is-info">Usuarios</a> #}
+    <a href="{% url 'users:list' %}" class="button is-info">Usuarios</a>
 {% endblock content %}
 
 {% block extra-js %}{% endblock extra-js %}

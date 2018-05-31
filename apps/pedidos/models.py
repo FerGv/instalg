@@ -14,6 +14,7 @@ class Pedido(models.Model):
     iva = models.FloatField(null=True)
     total = models.FloatField(null=True)
     status = models.BooleanField(default=False)
+    aprobacion = models.BooleanField(default=False)
     materiales = models.ManyToManyField(Material, through='Item')
 
     def __str__(self):
