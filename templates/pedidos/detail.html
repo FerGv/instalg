@@ -5,21 +5,52 @@
 {% block extra-css %}{% endblock extra-css %}
 
 {% block content %}
-<<<<<<< HEAD
     <h1 class="title">Detalle</h1>
 
     <p><b># Pedido:</b> {{ pedido.pk }}</p>
     <p><b>Empleado:</b> {{ pedido.empleado }}</p>
-    <p><b>Instalación:</b> {{ pedido.istalacion }}</p>
+    <p><b>Instalación:</b> {{ pedido.instalacion }}</p>
     <p><b>Fecha:</b> {{ pedido.fecha }}</p>
     <p><b>Hora:</b> {{ pedido.hora }}</p>
-    <p><b>Total:</b> {{ pedido.total }}</p>
+    <p><b>Subtotal:</b> {{ pedido.subtotal }}</p>
     <p><b>IVA:</b> {{ pedido.iva }}</p>
-    <p><b>Materiales:</b></p>
+    <p><b>Total:</b> {{ pedido.total }}</p>
     <ul>
-        {# {% for empleado in pedido.empleados.all %}
-            <li>* {{ empleado }}</li>
-        {% endfor %} #}
+        <table class="table is-hoverable">
+            <caption>Materiales</caption>
+            <thead>
+                <tr>
+                    <th>Material</th>
+                    <th>Precio Unitario</th>
+                    <th>Cantidad</th>
+                    <th>Importe</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in pedido.item_set.all %}
+                    <tr>
+                        <td>{{ item.material }}</td>
+                        <td>{{ item.precio_unitario }}</td>
+                        <td>{{ item.cantidad }}</td>
+                        <td>{{ item.importe }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="has-text-right">Subtotal</td>
+                    <td>{{ pedido.subtotal }}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="has-text-right">IVA (16%)</td>
+                    <td>{{ pedido.iva }}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="has-text-right">Total</td>
+                    <td>{{ pedido.total }}</td>
+                </tr>
+            </tfoot>
+        </table>
     </ul>
 
     <a href="{% url 'pedidos:list' %}">Volver</a>
@@ -28,9 +59,3 @@
 {% endblock content %}
 
 {% block extra-js %}{% endblock extra-js %}
-=======
-    Contenido
-{% endblock content %}
-
-{% block extra-js %}{% endblock extra-js %}
->>>>>>> karina

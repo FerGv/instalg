@@ -10,7 +10,7 @@
     <p><b>ID:</b> {{ puesto.pk }}</p>
     <p><b>Nombre:</b> {{ puesto.nombre }}</p>
     <p><b>Estado:</b> {% if puesto.estado %} Activo {% else %} Inactivo {% endif %}</p>
-    <p><b>Tipo Contrato:</b> {{ puesto.tipo_contrato }}</p>
+    <p><b>Tipo Contrato:</b> {{ puesto.get_tipo_display }}</p>
 
     <a href="{% url 'puestos:list' %}">Volver</a>
     <a href="{% url 'puestos:delete' puesto.pk %}">Eliminar</a>

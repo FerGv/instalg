@@ -1,15 +1,11 @@
 {% extends "base.html" %}
-<<<<<<< HEAD
 {% load bulma_tags %}
-=======
->>>>>>> karina
 
 {% block title %}Formulario{% endblock title %}
 
 {% block extra-css %}{% endblock extra-css %}
 
 {% block content %}
-<<<<<<< HEAD
     <h1 class="title">Formulario Pedido</h1>
     <br>
     {{ form.non_field_errors }}
@@ -20,19 +16,33 @@
     
         <p>Materiales: <button id="btnAgregar" class="button is-success">Agregar +</button></p>
         <div id="materialesContainer">
-            <div>
-                <select name="materiales[]" id="">
-                    {% for material in materiales %}
-                        <option value="{{ material.pk }}">{{ material.nombre }}</option>
-                    {% endfor %}
-                </select>
-                <input type="text" placeholder="Cantidad" name="cantidades[]">
-                <button class="button is-danger borrar">Borrar</button>
-            </div>
+            {% for item in pedido.item_set.all %}
+                <div>
+                    <select name="materiales" id="">
+                        {% for material in materiales %}
+                            <option value="{{ material.pk }}" {% if material.pk == item.material.pk %} selected {% endif %}>
+                                {{ material.nombre }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <input type="text" placeholder="Cantidad" name="cantidades" value="{{ item.cantidad }}">
+                    <button class="button is-danger borrar">Borrar</button>
+                </div>
+            {% empty %}    
+                <div>
+                    <select name="materiales" id="">
+                        {% for material in materiales %}
+                            <option value="{{ material.pk }}">{{ material.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="text" placeholder="Cantidad" name="cantidades">
+                    <button class="button is-danger borrar">Borrar</button>
+                </div>
+            {% endfor %}
         </div>
 
         <br>
-        <a href="{{ request.META.HTTP_REFERER }}" class="button is-text">Cancelar</a>
+        <a href="{% if request.META.HTTP_REFERER == request.build_absolute_uri %} {% url 'pedidos:list' %} {% else %} {{ request.META.HTTP_REFERER }} {% endif %}" class="button is-text">Cancelar</a>
         <input type="submit" value="Guardar" class="button is-primary">
     </form>
 {% endblock content %}
@@ -50,8 +60,8 @@
             const input = document.createElement('input')
             const btnBorrar = document.createElement('button')
 
-            select.setAttribute('name', 'materiales[]');
-            input.setAttribute('name', 'cantidades[]');
+            select.setAttribute('name', 'materiales');
+            input.setAttribute('name', 'cantidades');
             input.setAttribute('placeholder', 'Cantidad');
             btnBorrar.setAttribute('class', 'button is-danger borrar');
             btnBorrar.append('Borrar')
@@ -78,9 +88,3 @@
         })
     </script>
 {% endblock extra-js %}
-=======
-    Contenido
-{% endblock content %}
-
-{% block extra-js %}{% endblock extra-js %}
->>>>>>> karina

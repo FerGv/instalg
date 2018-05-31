@@ -19,4 +19,4 @@ class Empleado(models.Model):
 		ordering = ['numero']
 
 	def __str__(self):
-		return f"{self.num_empleado} - {self.nombre} {self.apellido_paterno} {self.apellido_materno}"
+		return f"{self.numero} - {self.nombre} {self.apellido_paterno} {self.apellido_materno}"

@@ -1,15 +1,10 @@
 {% extends "base.html" %}
 
-<<<<<<< HEAD
 {% block title %}Lista de Pedidos{% endblock title %}
-=======
-{% block title %}Lista{% endblock title %}
->>>>>>> karina
 
 {% block extra-css %}{% endblock extra-css %}
 
 {% block content %}
-<<<<<<< HEAD
     <div class="header">
         <section class="hero is-info">
             <div class="hero-body">
@@ -41,8 +36,9 @@
                 <th>Instalación</th>
                 <th>Fecha</th>
                 <th>Hora</th>
-                <th>Total</th>
+                <th>Subtotal</th>
                 <th>Iva</th>
+                <th>Total</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -54,8 +50,9 @@
                     <td>{{ pedido.instalacion.pk }}</td>
                     <td>{{ pedido.fecha }}</td>
                     <td>{{ pedido.hora }}</td>
-                    <td>{{ pedido.total }}</td>
+                    <td>{{ pedido.subtotal }}</td>
                     <td>{{ pedido.iva }}</td>
+                    <td>{{ pedido.total }}</td>
                     <td>
                         <a href="{% url 'pedidos:detail' pedido.pk %}" class="button is-info is-outlined" title="Ver detalle">
                             {# <span>Editar</span> #}
@@ -85,9 +82,6 @@
         </tbody>    
     </table>
     </section>
-=======
-    Contenido
->>>>>>> karina
 {% endblock content %}
 
 {% block extra-js %}{% endblock extra-js %}
