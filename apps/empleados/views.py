@@ -48,10 +48,10 @@ class EmpleadoUpdate(UpdateView):
         empleado.user.last_name = empleado.apellido_paterno
         empleado.user.save()
 
-        if empleado.tipo == 'IC': assign_role(user, 'ing_civil')
-        elif empleado.tipo == 'AM': assign_role(user, 'admin_materiales')
-        elif empleado.tipo == 'AE': assign_role(user, 'admin_empleados')
-        else: assign_role(user, 'admin_sistema')
+        if empleado.tipo == 'IC': assign_role(empleado.user, 'ing_civil')
+        elif empleado.tipo == 'AM': assign_role(empleado.user, 'admin_materiales')
+        elif empleado.tipo == 'AE': assign_role(empleado.user, 'admin_empleados')
+        else: assign_role(empleado.user, 'admin_sistema')
         # empleado.save()
         return redirect('empleados:detail', pk=empleado.pk)
     
